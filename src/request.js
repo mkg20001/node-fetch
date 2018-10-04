@@ -99,6 +99,7 @@ export default class Request {
 		this.agent = init.agent || input.agent;
 		this.cert = init.cert;
 		this.key = init.key;
+		this.rejectUnauthorized = init.rejectUnauthorized;
 	}
 
 	get method() {
@@ -220,6 +221,7 @@ export function getNodeRequestOptions(request) {
 		headers: exportNodeCompatibleHeaders(headers),
 		agent: request.agent,
 		cert: request.cert,
-		key: request.key
+		key: request.key,
+		rejectUnauthorized: request.rejectUnauthorized
 	});
 }
